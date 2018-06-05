@@ -5,4 +5,6 @@ class Bean < ApplicationRecord
 
   # Validations
 
+  validates :bean, :presence => true
+
 end
