@@ -13,6 +13,10 @@ class Bean < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :coffee_types,
+             :through => :bean_drinks,
+             :source => :drink
+
   has_many   :users,
              :through => :likes,
              :source => :user

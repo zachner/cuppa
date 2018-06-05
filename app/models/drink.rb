@@ -6,6 +6,10 @@ class Drink < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :beans,
+             :through => :bean_drinks,
+             :source => :bean
+
   # Validations
 
 end
