@@ -10,7 +10,7 @@ class BeanLikesController < ApplicationController
   end
 
   def index
-    @bean_likes = BeanLike.all
+    @bean_likes = current_user.bean_likes.page(params[:page]).per(10)
 
     render("bean_likes/index.html.erb")
   end
