@@ -54,6 +54,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_bean_drink" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for bean_id -->
+      <input type="hidden" name="bean_id" value="<%= @bean.id %>">
+
+      <!-- Label and input for drink_id -->
+      <div class="form-group">
+        <label for="drink_id" class="control-label">
+          Drink
+        </label>
+
+        <%= select_tag(:drink_id, options_from_collection_for_select(Drink.all, :id, :drink), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Bean Drink
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -85,6 +108,23 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_bean_like" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for bean_id -->
+      <input type="hidden" name="bean_id" value="<%= @bean.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Bean Like
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

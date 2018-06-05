@@ -6,6 +6,8 @@ class BeansController < ApplicationController
   end
 
   def show
+    @bean_like = BeanLike.new
+    @bean_drink = BeanDrink.new
     @bean = Bean.find(params[:id])
 
     render("beans/show.html.erb")
