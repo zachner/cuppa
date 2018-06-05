@@ -20,8 +20,11 @@
         <td><%= bean_like.bean.bean %></td>
         <td>
           <a href="/bean_likes/<%= bean_like.id %>" class="btn btn-primary">Show</a>
-          <a href="/bean_likes/<%= bean_like.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_bean_like/<%= bean_like.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == bean_like.user %>
+            <a href="/bean_likes/<%= bean_like.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_bean_like/<%= bean_like.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

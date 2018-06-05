@@ -1,4 +1,14 @@
 class BeanLikesController < ApplicationController
+  before_action :current_user_must_be_bean_like_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_bean_like_user
+    bean_like = BeanLike.find(params[:id])
+
+    unless current_user == bean_like.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @bean_likes = BeanLike.all
 
