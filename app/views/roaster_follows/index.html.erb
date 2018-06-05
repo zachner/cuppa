@@ -17,7 +17,7 @@
       <% @roaster_follows.each do |roaster_follow| %>
       <tr>
         <td><%= roaster_follow.user.email %></td>
-        <td><%= roaster_follow.roaster_id %></td>
+        <td><%= roaster_follow.roaster.roaster %></td>
         <td>
           <a href="/roaster_follows/<%= roaster_follow.id %>" class="btn btn-primary">Show</a>
           <a href="/roaster_follows/<%= roaster_follow.id %>/edit" class="btn btn-warning">Edit</a>
