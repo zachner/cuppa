@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @roaster_follow.errors.any? %>
+  <% @roaster_follow.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Roaster Follow</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_roaster_follow" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @roaster_follow.user_id %>">
+      </div>
+
+      <!-- Label and input for roaster_id -->
+      <div class="form-group">
+        <label for="roaster_id" class="control-label">
+          Roaster
+        </label>
+
+        <input type="text" id="roaster_id" name="roaster_id" placeholder="Roaster" class="form-control" value="<%= @roaster_follow.roaster_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Roaster Follow
+      </button>
+      or
+      <a href="/roaster_follows">Cancel</a>
+    </form>
+  </div>
+</div>
