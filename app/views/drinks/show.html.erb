@@ -23,3 +23,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Drink has many bean_drinks -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Bean Drinks
+      </li>
+
+      <% @drink.bean_drinks.each do |bean_drink| %>
+        <li class="list-group-item">
+          <a href="/bean_drinks/<%= bean_drink.id %>">
+            <%= bean_drink.bean_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/bean_drinks/<%= bean_drink.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/bean_drinks/<%= bean_drink.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_bean_drink/<%= bean_drink.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Drink has many beans -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Beans
+      </li>
+
+      <% @drink.beans.each do |bean| %>
+        <li class="list-group-item">
+          <a href="/beans/<%= bean.id %>">
+            <%= bean.bean %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/beans/<%= bean.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/beans/<%= bean.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_bean/<%= bean.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -26,3 +26,127 @@
     </div>
   </div>
 </div>
+
+<!-- A Bean has many bean_drinks -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Bean Drinks
+      </li>
+
+      <% @bean.bean_drinks.each do |bean_drink| %>
+        <li class="list-group-item">
+          <a href="/bean_drinks/<%= bean_drink.id %>">
+            <%= bean_drink.bean_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/bean_drinks/<%= bean_drink.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/bean_drinks/<%= bean_drink.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_bean_drink/<%= bean_drink.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Bean has many likes -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Likes
+      </li>
+
+      <% @bean.likes.each do |bean_like| %>
+        <li class="list-group-item">
+          <a href="/bean_likes/<%= bean_like.id %>">
+            <%= bean_like.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/bean_likes/<%= bean_like.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/bean_likes/<%= bean_like.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_bean_like/<%= bean_like.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Bean has many users -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Users
+      </li>
+
+      <% @bean.users.each do |user| %>
+        <li class="list-group-item">
+          <a href="/users/<%= user.id %>">
+            <%= user.email %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/users/<%= user.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_user/<%= user.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Bean has many coffee_types -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Coffee Types
+      </li>
+
+      <% @bean.coffee_types.each do |drink| %>
+        <li class="list-group-item">
+          <a href="/drinks/<%= drink.id %>">
+            <%= drink.drink %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/drinks/<%= drink.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/drinks/<%= drink.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_drink/<%= drink.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
