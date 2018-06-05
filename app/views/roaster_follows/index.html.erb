@@ -20,8 +20,11 @@
         <td><%= roaster_follow.roaster.roaster %></td>
         <td>
           <a href="/roaster_follows/<%= roaster_follow.id %>" class="btn btn-primary">Show</a>
-          <a href="/roaster_follows/<%= roaster_follow.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_roaster_follow/<%= roaster_follow.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == roaster_follow.user %>
+            <a href="/roaster_follows/<%= roaster_follow.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_roaster_follow/<%= roaster_follow.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
