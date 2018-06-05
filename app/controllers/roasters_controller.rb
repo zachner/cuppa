@@ -1,6 +1,7 @@
 class RoastersController < ApplicationController
   def index
-    @roasters = Roaster.page(params[:page]).per(10)
+    @q = Roaster.ransack(params[:q])
+    @roasters = @q.result(:distinct => true).includes(:beans, :roaster_follows, :followers).page(params[:page]).per(10)
 
     render("roasters/index.html.erb")
   end

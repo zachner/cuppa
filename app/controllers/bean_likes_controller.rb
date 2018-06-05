@@ -10,7 +10,8 @@ class BeanLikesController < ApplicationController
   end
 
   def index
-    @bean_likes = current_user.bean_likes.page(params[:page]).per(10)
+    @q = current_user.bean_likes.ransack(params[:q])
+    @bean_likes = @q.result(:distinct => true).includes(:user, :bean).page(params[:page]).per(10)
 
     render("bean_likes/index.html.erb")
   end
