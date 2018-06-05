@@ -16,7 +16,7 @@
 
       <% @bean_likes.each do |bean_like| %>
       <tr>
-        <td><%= bean_like.user_id %></td>
+        <td><%= bean_like.user.email %></td>
         <td><%= bean_like.bean_id %></td>
         <td>
           <a href="/bean_likes/<%= bean_like.id %>" class="btn btn-primary">Show</a>
