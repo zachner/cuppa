@@ -47,8 +47,6 @@ class BeanLikesController < ApplicationController
 
   def update
     @bean_like = BeanLike.find(params[:id])
-
-    @bean_like.user_id = params[:user_id]
     @bean_like.bean_id = params[:bean_id]
 
     save_status = @bean_like.save
