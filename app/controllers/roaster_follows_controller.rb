@@ -1,5 +1,5 @@
 class RoasterFollowsController < ApplicationController
-  before_action :current_user_must_be_roaster_follow_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_roaster_follow_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_roaster_follow_user
     roaster_follow = RoasterFollow.find(params[:id])
