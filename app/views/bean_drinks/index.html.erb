@@ -16,8 +16,20 @@
 
       <% @bean_drinks.each do |bean_drink| %>
       <tr>
-        <td><%= bean_drink.bean.bean %></td>
-        <td><%= bean_drink.drink.drink %></td>
+        <td>
+          <% if bean_drink.bean.present? %>
+            <a href="/beans/<%= bean_drink.bean.id %>">
+              <%= bean_drink.bean.bean %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if bean_drink.drink.present? %>
+            <a href="/drinks/<%= bean_drink.drink.id %>">
+              <%= bean_drink.drink.drink %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/bean_drinks/<%= bean_drink.id %>" class="btn btn-primary">Show</a>
           <a href="/bean_drinks/<%= bean_drink.id %>/edit" class="btn btn-warning">Edit</a>

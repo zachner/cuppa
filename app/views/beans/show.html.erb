@@ -9,7 +9,13 @@
       <dd><%= @bean.bean %></dd>
 
       <dt>Roaster</dt>
-      <dd><%= @bean.roaster_id %></dd>
+      <dd>
+        <% if @bean.roaster.present? %>
+          <a href="/roasters/<%= @bean.roaster_id %>">
+            <%= @bean.roaster.roaster %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

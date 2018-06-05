@@ -17,7 +17,13 @@
       <% @beans.each do |bean| %>
       <tr>
         <td><%= bean.bean %></td>
-        <td><%= bean.roaster.roaster %></td>
+        <td>
+          <% if bean.roaster.present? %>
+            <a href="/roasters/<%= bean.roaster.id %>">
+              <%= bean.roaster.roaster %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/beans/<%= bean.id %>" class="btn btn-primary">Show</a>
           <a href="/beans/<%= bean.id %>/edit" class="btn btn-warning">Edit</a>

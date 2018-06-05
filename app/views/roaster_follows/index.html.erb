@@ -16,8 +16,20 @@
 
       <% @roaster_follows.each do |roaster_follow| %>
       <tr>
-        <td><%= roaster_follow.user.email %></td>
-        <td><%= roaster_follow.roaster.roaster %></td>
+        <td>
+          <% if roaster_follow.user.present? %>
+            <a href="/users/<%= roaster_follow.user.id %>">
+              <%= roaster_follow.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if roaster_follow.roaster.present? %>
+            <a href="/roasters/<%= roaster_follow.roaster.id %>">
+              <%= roaster_follow.roaster.roaster %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/roaster_follows/<%= roaster_follow.id %>" class="btn btn-primary">Show</a>
           

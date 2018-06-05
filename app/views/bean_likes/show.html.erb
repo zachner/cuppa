@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @bean_like.user_id %></dd>
+      <dd>
+        <% if @bean_like.user.present? %>
+          <a href="/users/<%= @bean_like.user_id %>">
+            <%= @bean_like.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Bean</dt>
-      <dd><%= @bean_like.bean_id %></dd>
+      <dd>
+        <% if @bean_like.bean.present? %>
+          <a href="/beans/<%= @bean_like.bean_id %>">
+            <%= @bean_like.bean.bean %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
