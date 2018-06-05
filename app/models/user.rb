@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :bean_likes,
+             :dependent => :destroy
+
   has_many   :roaster_follows,
              :dependent => :destroy
 
