@@ -33,7 +33,7 @@
           Bean
         </label>
 
-        <input type="text" id="bean_id" name="bean_id" placeholder="Bean" class="form-control" value="<%= @bean_like.bean_id %>">
+        <%= select_tag(:bean_id, options_from_collection_for_select(Bean.all, :id, :bean, @bean_like.bean_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
