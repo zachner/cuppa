@@ -1,6 +1,9 @@
 class Bean < ApplicationRecord
   # Direct associations
 
+  belongs_to :roaster,
+             :counter_cache => true
+
   has_many   :likes,
              :class_name => "BeanLike",
              :dependent => :destroy
