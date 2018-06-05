@@ -1,6 +1,6 @@
 class RoastersController < ApplicationController
   def index
-    @roasters = Roaster.all
+    @roasters = Roaster.page(params[:page]).per(10)
 
     render("roasters/index.html.erb")
   end

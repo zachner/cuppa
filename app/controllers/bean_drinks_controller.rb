@@ -1,6 +1,6 @@
 class BeanDrinksController < ApplicationController
   def index
-    @bean_drinks = BeanDrink.all
+    @bean_drinks = BeanDrink.page(params[:page]).per(10)
 
     render("bean_drinks/index.html.erb")
   end
