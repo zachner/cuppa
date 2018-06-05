@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Bean drinks
+    <a href="/bean_drinks/new" class="btn btn-lg btn-success">New Bean drink</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Bean</th>
+        <th>Drink</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @bean_drinks.each do |bean_drink| %>
+      <tr>
+        <td><%= bean_drink.bean_id %></td>
+        <td><%= bean_drink.drink_id %></td>
+        <td>
+          <a href="/bean_drinks/<%= bean_drink.id %>" class="btn btn-primary">Show</a>
+          <a href="/bean_drinks/<%= bean_drink.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_bean_drink/<%= bean_drink.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @bean_drink.errors.any? %>
+  <% @bean_drink.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Bean Drink #<%= @bean_drink.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_bean_drink/<%= @bean_drink.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for bean_id -->
+      <div class="form-group">
+        <label for="bean_id" class="control-label">
+          Bean
+        </label>
+
+        <input type="text" id="bean_id" name="bean_id" placeholder="Bean" class="form-control" value="<%= @bean_drink.bean_id %>">
+      </div>
+
+      <!-- Label and input for drink_id -->
+      <div class="form-group">
+        <label for="drink_id" class="control-label">
+          Drink
+        </label>
+
+        <input type="text" id="drink_id" name="drink_id" placeholder="Drink" class="form-control" value="<%= @bean_drink.drink_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Bean Drink
+      </button>
+      or
+      <a href="/bean_drinks/<%= @bean_drink.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
