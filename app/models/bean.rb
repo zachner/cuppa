@@ -13,6 +13,10 @@ class Bean < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :likes,
+             :source => :user
+
   # Validations
 
   validates :bean, :presence => true
