@@ -47,8 +47,6 @@ class RoasterFollowsController < ApplicationController
 
   def update
     @roaster_follow = RoasterFollow.find(params[:id])
-
-    @roaster_follow.user_id = params[:user_id]
     @roaster_follow.roaster_id = params[:roaster_id]
 
     save_status = @roaster_follow.save
