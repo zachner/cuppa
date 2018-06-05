@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Bean_like resource:
+  # CREATE
+  get "/bean_likes/new", :controller => "bean_likes", :action => "new"
+  post "/create_bean_like", :controller => "bean_likes", :action => "create"
+
+  # READ
+  get "/bean_likes", :controller => "bean_likes", :action => "index"
+  get "/bean_likes/:id", :controller => "bean_likes", :action => "show"
+
+  # UPDATE
+  get "/bean_likes/:id/edit", :controller => "bean_likes", :action => "edit"
+  post "/update_bean_like/:id", :controller => "bean_likes", :action => "update"
+
+  # DELETE
+  get "/delete_bean_like/:id", :controller => "bean_likes", :action => "destroy"
+  #------------------------------
+
   # Routes for the Roaster resource:
   # CREATE
   get "/roasters/new", :controller => "roasters", :action => "new"
