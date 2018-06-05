@@ -18,6 +18,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :roasters_follows,
+             :through => :roaster_follows,
+             :source => :roaster
+
   # Validations
 
   validates :username, :uniqueness => true

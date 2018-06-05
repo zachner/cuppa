@@ -9,6 +9,10 @@ class Roaster < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :followers,
+             :through => :roaster_follows,
+             :source => :user
+
   # Validations
 
 end
