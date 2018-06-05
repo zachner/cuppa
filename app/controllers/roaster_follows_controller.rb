@@ -10,7 +10,7 @@ class RoasterFollowsController < ApplicationController
   end
 
   def index
-    @roaster_follows = RoasterFollow.all
+    @roaster_follows = current_user.roaster_follows.page(params[:page]).per(10)
 
     render("roaster_follows/index.html.erb")
   end
